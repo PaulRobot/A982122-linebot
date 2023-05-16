@@ -2,8 +2,8 @@
 
 public class DestinyModel
 {
-    public int id;
-    public string name;
-    public int type;
-    public string description;
+    public int id { get; set; }
+    public string name { get; set; }
+    public int type { get; set; }
+    public string description { get; set; }
 }
