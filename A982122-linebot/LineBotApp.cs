@@ -24,10 +24,12 @@ public class LineBotApp : WebhookApplication
                 //使用者Id
                 var userId = ev.Source.UserId;
                     
+                var  text = ((TextEventMessage)ev.Message).Text;
                 //回傳 hellow
                 result = new List<ISendMessage>
                 {
-                    new TextMessage("hellow")
+                    new TextMessage("hellow" + text)
+                    
                 };
             }
                 break;
