@@ -1,5 +1,7 @@
 ﻿using Line.Messaging;
 using Line.Messaging.Webhooks;
+using NuGet.ContentModel;
+using System;
 
 namespace A982122_linebot.Models;
 public class LineBotApp : WebhookApplication
@@ -36,6 +38,50 @@ public class LineBotApp : WebhookApplication
                     {
                         new TextMessage(response)
                     };
+                }
+                else if (text == "事件發生")
+                {
+                    var rand = new Random();
+                    var randomNumber = rand.Next(5);
+                    switch (randomNumber)
+                    {
+                        case 0:
+                            result = new List<ISendMessage>
+                            {
+                                new TextMessage(userId + "採到香蕉皮 跌了個狗吃屎")
+                            };
+                            break;
+                        case 1:
+                            result = new List<ISendMessage>
+                            {
+                                new TextMessage(userId + "撿到100塊 超爽的")
+                            };
+                            break;
+                        case 2:
+                            result = new List<ISendMessage>
+                            {
+                                new TextMessage(userId +"被貓咪爬滿全身 太可怕了!")
+                            };
+                            break;
+                        case 3:
+                            result = new List<ISendMessage>
+                            {
+                                new TextMessage(userId +"被搶劫了! 但他的錢包原本就是空的")
+                            };
+                            break;
+                        case 4:
+                            result = new List<ISendMessage>
+                            {
+                                new TextMessage(userId +"拿到了大薯買一送一券!只是過期了")
+                            };
+                            break;
+                        case 5:
+                            result = new List<ISendMessage>
+                            {
+                                new TextMessage(userId + "的能力變成了島輝!")
+                            };
+                            break;
+                    }
                 }
                 else
                 {
@@ -85,7 +131,7 @@ public class LineBotApp : WebhookApplication
 
             if (subs.Length == 3)
             {
-                if (subs[0]=="拉巴拉修狗")
+                if (subs[0]=="拉巴拉修狗" && subs[0] != "事件發生")
                 {
                     result = true;
                 }
